@@ -4,27 +4,51 @@ import Header from './components/Header.vue';
 import Calculadora from './components/Calculadora.vue';
 
 const state = reactive({
-  operator: 'soma'
+  operator: '+',
+  firstNum: 0,
+  secundNum: 0,
+  result: 0
 })
 
-function getOperator() {
-  switch (state.operator) {
-    case 'soma':
-      return '+'
-    case 'diferenca':
-      return '-'
-    case 'multiplicacao':
-      return 'X'
+const editOperator = event => {
+  state.operator = event.target.value
+  state.result = calculate();
+};
+
+const setNumbers = (e) => {
+  if (e.target.id === "firstNumber") {
+    state.firstNum = e.target.value;
+  } else {
+    state.secundNum = e.target.value;
+  }
+  state.result = calculate();
+};
+
+const calculate = () => {
+  let { operator, firstNum, secundNum } = state;
+  firstNum = Number(firstNum);
+  secundNum = Number(secundNum);
+  switch (operator) {
+    case '+':
+      return firstNum + secundNum;
+    case '-':
+      return firstNum - secundNum;
+    case '*':
+      return firstNum * secundNum;
+    case '/':
+      return firstNum / secundNum;
     default:
-      return '/'
+      alert("Ocorreu um erro com o operador escolhido");
+      break
   }
 }
 </script>
 <template>
   <div class="background">
     <div class="container">
-      <Header :editarOperator="event => state.operator = event.target.value"></Header>
-      <Calculadora :signal="getOperator()"></Calculadora>
+      <Header :setOperator="editOperator"></Header>
+      <Calculadora :signal="state.operator" :setNum="setNumbers" :calcResult="state.result" :firstNum="state.firstNum"
+        :secundNum="state.secundNum"></Calculadora>
     </div>
   </div>
 </template>

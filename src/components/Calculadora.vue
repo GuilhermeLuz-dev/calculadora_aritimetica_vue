@@ -1,21 +1,32 @@
 <script setup>
-const props = defineProps(['signal'])
+const props = defineProps(['signal', 'setNum', 'calcResult', 'firstNum', 'secundNum'])
+
+
 </script>
 <template>
     <div class="calculadora">
-        <input type="number" id="firstNumber">
+        <input :value="props.firstNum" @input="props.setNum" type="number" id="firstNumber">
         <span id="signal">
             {{ props.signal }}
         </span>
-        <input type="number" id="secundNumber">
+        <input :value="props.secundNum" @input="props.setNum" type="number" id="secundNumber">
         <span id="equals">=</span>
-        <div id="result"></div>
+        <span id="result">
+            {{ props.calcResult }}
+        </span>
     </div>
 </template>
 <style scoped>
+input {
+    color: black;
+    padding: 10px;
+}
+
 #result {
+    padding: 10px;
+    color: black;
     width: 50px;
-    height: 5%;
+    height: 50px;
     background-color: #fff;
 }
 </style>
