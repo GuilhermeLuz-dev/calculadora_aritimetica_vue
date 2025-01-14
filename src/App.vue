@@ -2,6 +2,7 @@
 import { reactive } from 'vue';
 import Header from './components/Header.vue';
 import Calculadora from './components/Calculadora.vue';
+import Footer from './components/Footer.vue';
 
 const state = reactive({
   operator: '+',
@@ -49,6 +50,7 @@ const calculate = () => {
       <Header :setOperator="editOperator"></Header>
       <Calculadora :signal="state.operator" :setNum="setNumbers" :calcResult="state.result" :firstNum="state.firstNum"
         :secundNum="state.secundNum"></Calculadora>
+      <Footer></Footer>
     </div>
   </div>
 </template>
@@ -58,6 +60,7 @@ const calculate = () => {
   padding: 0;
   margin: 0;
   color: #fff;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
 }
 
 .background {

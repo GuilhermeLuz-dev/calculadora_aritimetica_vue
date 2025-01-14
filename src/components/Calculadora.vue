@@ -11,22 +11,41 @@ const props = defineProps(['signal', 'setNum', 'calcResult', 'firstNum', 'secund
         </span>
         <input :value="props.secundNum" @input="props.setNum" type="number" id="secundNumber">
         <span id="equals">=</span>
-        <span id="result">
+        <div id="result">
             {{ props.calcResult }}
-        </span>
+        </div>
     </div>
 </template>
 <style scoped>
-input {
-    color: black;
-    padding: 10px;
+.calculadora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #579FD4, 90%, #33D88E);
+    padding: 30px;
+    border-radius: 10px;
 }
 
+input,
 #result {
-    padding: 10px;
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
     color: black;
-    width: 50px;
-    height: 50px;
+    padding: 10px;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#signal,
+#equals {
+    margin: 0 30px;
+    font-size: 40px;
+    font-weight: bold;
 }
 </style>
