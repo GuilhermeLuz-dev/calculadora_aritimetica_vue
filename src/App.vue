@@ -29,18 +29,22 @@ const calculate = () => {
   let { operator, firstNum, secundNum } = state;
   firstNum = Number(firstNum);
   secundNum = Number(secundNum);
-  switch (operator) {
-    case '+':
-      return firstNum + secundNum;
-    case '-':
-      return firstNum - secundNum;
-    case '*':
-      return firstNum * secundNum;
-    case '/':
-      return firstNum / secundNum;
-    default:
-      alert("Ocorreu um erro com o operador escolhido");
-      break
+  if (operator === '/' && firstNum === 0) {
+    alert("Não é possível dividir um número por 0")
+  } else {
+    switch (operator) {
+      case '+':
+        return firstNum + secundNum;
+      case '-':
+        return firstNum - secundNum;
+      case '*':
+        return firstNum * secundNum;
+      case '/':
+        return firstNum / secundNum;
+      default:
+        alert("Ocorreu um erro com o operador escolhido");
+        break
+    }
   }
 }
 </script>
