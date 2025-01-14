@@ -7,8 +7,8 @@ const props = defineProps(['setOperator'])
         <div class="select">
             <p>Escolha uma operação aritimética:</p>
             <select class="select_operator" @change="props.setOperator">
-                <option selected value="+">Soma</option>
-                <option value="-">Diferença</option>
+                <option selected value="+">Adição</option>
+                <option value="-">Subtração</option>
                 <option value="*">Multiplicação</option>
                 <option value="/">Divisão</option>
             </select>
